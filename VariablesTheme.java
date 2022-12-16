@@ -100,9 +100,9 @@ public class VariablesTheme {
         char leftBracket = '(';
         char rightBracket = ')';
         System.out.println("     " + slash + backslash + "\n    " + slash + "  " + backslash + "\n   " +
-        slash + underscore + leftBracket + " " + rightBracket + backslash + "\n  " + slash +
-        "      " + backslash + "\n " + slash + underscore + underscore + underscore + underscore + slash +
-        backslash + underscore + underscore + backslash);
+                slash + underscore + leftBracket + " " + rightBracket + backslash + "\n  " + slash +
+                "      " + backslash + "\n " + slash + underscore + underscore + underscore + underscore + slash +
+                backslash + underscore + underscore + backslash);
 
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int num = 123;
@@ -110,9 +110,9 @@ public class VariablesTheme {
         int tens = num % 100;
         int hundreds = num / 100;
         System.out.println("Число " + num + " содержит:\n    " + 
-        ones + " единицы\n    " + 
-        tens + " десятка\n    " + 
-        hundreds + " сотня");
+                ones + " единицы\n    " + 
+                tens + " десятка\n    " + 
+                hundreds + " сотня");
 
         System.out.println("\n9. Вывод времени.");
         int secondsInput = 86399;
