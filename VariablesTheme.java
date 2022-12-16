@@ -38,23 +38,23 @@ public class VariablesTheme {
         byte maxByte = 127;
         short maxShort = 32767;
         int maxInt = 2147483647;
-        long maxLong = 9223372036854775807L; 
+        long maxLong = 9223372036854775807L;
         System.out.println("Переменная maxByte: ");
         System.out.println("    первоначальное значение: " + maxByte);
-        System.out.println("    значение после инкремента: " + maxByte++);
-        System.out.println("    значение после декремента: " + maxByte--);
+        System.out.println("    значение после инкремента: " + ++maxByte);
+        System.out.println("    значение после декремента: " + --maxByte);
         System.out.println("Переменная maxShort: ");
         System.out.println("    первоначальное значение: " + maxShort);
-        System.out.println("    значение после инкремента: " + maxShort++);
-        System.out.println("    значение после декремента: " + maxShort--);
+        System.out.println("    значение после инкремента: " + ++maxShort);
+        System.out.println("    значение после декремента: " + --maxShort);
         System.out.println("Переменная maxInt: ");
         System.out.println("    первоначальное значение: " + maxInt);
-        System.out.println("    значение после инкремента: " + maxInt++);
-        System.out.println("    значение после декремента: " + maxInt++);
+        System.out.println("    значение после инкремента: " + ++maxInt);
+        System.out.println("    значение после декремента: " + --maxInt);
         System.out.println("Переменная maxLong: ");
         System.out.println("    первоначальное значение: " + maxLong);
-        System.out.println("    значение после инкремента: " + maxLong++);
-        System.out.println("    значение после декремента: " + maxLong--);
+        System.out.println("    значение после инкремента: " + ++maxLong);
+        System.out.println("    значение после декремента: " + --maxLong);
 
         System.out.println("\n5. Перестановка значений переменных.");
         int digit1 = 2;
@@ -100,19 +100,19 @@ public class VariablesTheme {
         char leftBracket = '(';
         char rightBracket = ')';
         System.out.println("     " + slash + backslash + "\n    " + slash + "  " + backslash + "\n   " +
-            slash + underscore + leftBracket + " " + rightBracket + backslash + "\n  " + slash +
-            "      " + backslash + "\n " + slash + underscore + underscore + underscore + underscore + slash + 
-            backslash + underscore + underscore + backslash);
+        slash + underscore + leftBracket + " " + rightBracket + backslash + "\n  " + slash +
+        "      " + backslash + "\n " + slash + underscore + underscore + underscore + underscore + slash +
+        backslash + underscore + underscore + backslash);
 
         System.out.println("\n8. Вывод количества сотен, десятков и единиц числа");
         int num = 123;
-        int unit = num % 10;
-        int dozens = num % 100;
-        int hundreds = num % 10 / 10;
+        int ones = num % 10;
+        int tens = num % 100;
+        int hundreds = num / 100;
         System.out.println("Число " + num + " содержит:\n    " + 
-        unit + " единицы\n    " + 
-        dozens + " десятка\n    " + 
-        hundreds + " сотен");
+        ones + " единицы\n    " + 
+        tens + " десятка\n    " + 
+        hundreds + " сотня");
 
         System.out.println("\n9. Вывод времени.");
         int secondsInput = 86399;
