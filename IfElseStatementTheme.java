@@ -30,66 +30,68 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n2. Поиск max и min числа");
-        int numb1 = 502, numb2 = -129;
-        if (numb1 > 0 && numb2 < 0) {
-            System.out.println(numb1 + " максимальное число");
-            System.out.println(numb2 + " минимальное число");
-        } else if (numb1 == numb2) {
-            System.out.println(numb1 + " и " + numb2 + " равны");
+        int num1 = 502, num2 = -129;
+        if (num1 > 0 && num2 < 0) {
+            System.out.println(num1 + " максимальное число");
+            System.out.println(num2 + " минимальное число");
+        } else if (num1 == num2) {
+            System.out.println(num1 + " и " + num2 + " равны");
         } else {
-            System.out.println(numb2 + " максимальное число");
-            System.out.println(numb1 + " минимальное число");
+            System.out.println(num2 + " максимальное число");
+            System.out.println(num1 + " минимальное число");
         }
 
         System.out.println("\n3. Проверка числа");
         int randomNum = 567;
         if (randomNum != 0) {
             if (randomNum % 2 == 0) {
-                System.out.println("Число " + randomNum + " является четным");
+                System.out.println(randomNum + " является четным");
             } else {
-                System.out.println("Число " + randomNum + " является нечетным");
+                System.out.println("Число нечетное");
             }
             if (randomNum < 0) {
-                System.out.println("Число " + randomNum + " является отрицательным");
+                System.out.println("Число " + randomNum + " отрицательное");
             } else {
-                System.out.println("Число " + randomNum + " является положительным");
+                System.out.println(randomNum + " является положительным");
             }
         } else {
             System.out.println("Число равно 0");
         }
 
         System.out.println("\n4. Поиск одинаковых цифр в числах");
-        int num = 123;
-        int num1 = 123;
-        boolean isEqualToHundreds = num / 100 == num1 / 100;
-        boolean isEqualToTens = num / 10 % 10 == num1 / 10 % 10;
-        boolean isEqualToOnes = num % 10 == num1 % 10;
-        System.out.println("Исходные числа: " + num + " и " + num1);
-        if (isEqualToHundreds && isEqualToTens && isEqualToOnes) {
-            if (isEqualToHundreds) {
-                System.out.println("Одинаковые числа в первом разряде: "
-                    + num / 100 + " и " + num1 / 100);
-            }
-            if (isEqualToTens) {
-                System.out.println("Одинаковые числа во втором разряде: "
-                    + num / 10 % 10 + " и " + num1 / 10 % 10);
-            }
-            if (isEqualToOnes) {
-                System.out.println("Одинаковые числа в третьем разряде: "
-                    + num % 10 + " и " + num1 % 10);
-            }
+        int number = 123;
+        int number1 = 153;
+        boolean isHundredsEqual = number / 100 == number1 / 100;
+        boolean isTensEqual = number / 10 % 10 == number1 / 10 % 10;
+        boolean isOnesEqual = number % 10 == number1 % 10;
+        System.out.println("Исходные числа: " + number + " и " + number1);
+        if (isHundredsEqual) {
+            System.out.println("Одинаковые числа в первом разряде: "
+                    + number / 100 + " и " + number1 / 100);
         } else {
-            System.out.println("Числа не равны!");
+            System.out.println("Числа в первом разряде не равны");
         }
-        
+        if (isTensEqual) {
+            System.out.println("Одинаковые числа во втором разряде: "
+                    + number / 10 % 10 + " и " + number1 / 10 % 10);
+        } else {
+            System.out.println("Числа во втором разряде не равны");
+        }
+        if (isOnesEqual) {
+            System.out.println("Одинаковые числа в третьем разряде: "
+                    + number % 10 + " и " + number1 % 10);
+        } else {
+            System.out.println("Числа в третьем разряде не равны");
+        }
+
         System.out.println("\n5. Определение символа по его коду");
-        char sym = '\u0057';
-        if (sym < 'Z' && sym > 'A') {
-            System.out.println("Большая буква " + sym);
-        } else if (sym < 'z' && sym > 'a') {
-            System.out.println("Маленькая буква " + sym);
-        } else if (sym >= '0' && sym <= '9') {
-            System.out.println("Число " + sym);
+        char symbol = '\u005A';
+        if (symbol >= 'A' && symbol <= 'Z') {
+            System.out.println("Большая буква " + symbol);
+        } else if (symbol >= 'a' && symbol <= 'a') {
+            System.out.println("Маленькая буква " + symbol);
+        } else if (symbol >= '0' && symbol <= '9') {
+            System.out.println("Число " + symbol);
         } else {
             System.out.println("Не буква и не число");
         }

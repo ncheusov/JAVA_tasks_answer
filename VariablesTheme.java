@@ -23,9 +23,9 @@ public class VariablesTheme {
         int penPrice = 100;
         int bookPrice = 200;
         int discount = 11;
-        int sumDiscount = (penPrice + bookPrice) * discount / 100;
-        int discountPrice = penPrice + bookPrice - sumDiscount;
-        System.out.println("Сумма скидки: " + sumDiscount + " руб.");
+        int discountSum = (penPrice + bookPrice) * discount / 100;
+        int discountPrice = penPrice + bookPrice - discountSum;
+        System.out.println("Сумма скидки: " + discountSum + " руб.");
         System.out.println("Общая стоимость товаров со скидкой: " + discountPrice + " руб.");
 
         System.out.println("\n3. Вывод слова JAVA.");
@@ -87,7 +87,7 @@ public class VariablesTheme {
         char at = '@';
         char circumflex = '^';
         char underscore = '_';
-        System.out.println(((int) hash ) + " = " + hash);
+        System.out.println((int) hash  + " = " + hash);
         System.out.println((int) ampersand + " = " + ampersand);
         System.out.println((int) at + " = " + at);
         System.out.println((int) circumflex + " = " + circumflex);
@@ -95,7 +95,7 @@ public class VariablesTheme {
 
         System.out.println("\n7. Вывод в консоль ASCII-арт Дюка.");
         char slash = '/';
-        char backslash = 92;
+        char backslash = '\\';
         char underscore2 = '_';
         char leftBracket = '(';
         char rightBracket = ')';
