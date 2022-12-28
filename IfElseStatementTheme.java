@@ -148,5 +148,14 @@ public class IfElseStatementTheme {
 
         System.out.println("\n9. Подсчет количества банкнот");
         int sumInUSD = 567;
+        int totalSum = 0, ratingOf100 = 10, ratingOf10 = 5, ratingOf1 = 10;
+        int hundreds = sumInUSD / 100, tens = sumInUSD / 10 % 10, ones = sumInUSD % 10;
+        if (hundreds == 5) {
+            totalSum = (ratingOf100 * 100) - (hundreds * 100);
+        }
+        if (tens > 5) {
+            
+        }
+        System.out.println(totalSum);
     }
 } 
