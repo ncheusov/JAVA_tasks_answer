@@ -85,8 +85,8 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n5. Определение символа по его коду");
-        char symbol = '\u005A';
-        if (symbol >= 'A' && symbol <= 'Z') {
+        char symbol = '\u0057';
+        if (symbol >= 'A' && symbol <= 'W') {
             System.out.println("Большая буква " + symbol);
         } else if (symbol >= 'a' && symbol <= 'a') {
             System.out.println("Маленькая буква " + symbol);
@@ -147,15 +147,16 @@ public class IfElseStatementTheme {
         }
 
         System.out.println("\n9. Подсчет количества банкнот");
-        int sumInUSD = 567;
-        int totalSum = 0, ratingOf100 = 10, ratingOf10 = 5, ratingOf1 = 10;
-        int hundreds = sumInUSD / 100, tens = sumInUSD / 10 % 10, ones = sumInUSD % 10;
-        if (hundreds == 5) {
-            totalSum = (ratingOf100 * 100) - (hundreds * 100);
-        }
-        if (tens > 5) {
+        int sum = 567;
+        int ratingOf100 = 100, ratingOf10 = 10, ratingOf1 = 1;
+        System.out.println("Номиналы банкнот в банкомате: " + ratingOf100 + "$ " + ratingOf10 + "$ " + ratingOf1 + "$");
+        int amountHundreds = sum / 100 % 10;
+        int amountTens = sum / 10 % 10;
+        int amountoOnes = sum % 10;
+        if (amountTens > 5) {
             
         }
-        System.out.println(totalSum);
+        
+        
     }
 } 
