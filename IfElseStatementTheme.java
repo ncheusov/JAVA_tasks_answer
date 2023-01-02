@@ -97,49 +97,50 @@ public class IfElseStatementTheme {
         }
         
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
-        int deposit = 310000, accruedInterest = 0, totalSum = 0;
+        int deposit = 310000, accruedInterest = 0;
         if (deposit <= 100000) {
-            accruedInterest = (deposit * 5 * 365 / 365) / 100;
+            accruedInterest = 5; 
         } else if (deposit >= 100000 && deposit <= 300000) {
-            accruedInterest = (deposit * 7 * 365 / 365) / 100;;
+            accruedInterest = 7;
         } else if (deposit > 300000) {
-            accruedInterest = (deposit * 10 * 365 / 365) / 100;
+            accruedInterest = 10;
         }
-        totalSum = deposit + accruedInterest;
+        int amountOfInterest = deposit * accruedInterest / 365;
+        int totalSum = deposit + amountOfInterest;
         System.out.println("Сумма вклада: " + deposit);
-        System.out.println("Начисленный %: " + accruedInterest);
+        System.out.println("Начисленный %: " + amountOfInterest);
         System.out.println("Итоговая сумма с %: " + totalSum);
 
         System.out.println("\n7. Определение оценки по предметам");
-        int history = 59, programming = 91;
-        int historyGrade = 0, progrGrade = 0, sumGrades = 0;
-        if (history <= 60) {
+        int historyPoints = 59, progPoints = 91;
+        int historyGrade = 0, progGrade = 0;
+        if (historyPoints <= 60) {
             historyGrade = 2;
-        } else if (programming <= 60) {
-            progrGrade = 2;
-        } else if (history > 60) {
+        } else if (historyPoints > 60) {
             historyGrade = 3;
-        } else if (programming > 60) {
-            progrGrade = 3;
-        } else if (history > 73) {
+        } else if (historyPoints > 73) {
             historyGrade = 4;
-        } else if (programming > 73) {
-            progrGrade = 4;
-        } else if (history > 91) {
+        } else if (historyPoints > 91) {
             historyGrade = 5;
-        } else if (programming > 91) {
-            progrGrade = 5;
+        } else if (progPoints <= 60) {
+            progGrade = 2;
+        } else if (progPoints > 60) {
+            progGrade = 3;
+        } else if (progPoints > 73) {
+            progGrade = 4;
+        } else if (progPoints > 91) {
+            progGrade = 5;
         }
-        sumGrades = (historyGrade + progrGrade) / 2;
-        int sumPercent = (history + programming ) / 2;
+        int averageGrades = (historyGrade + progGrade) / 2;
+        int averagePercent = (historyPoints + progPoints ) / 2;
         System.out.println("Оценка " + historyGrade + " по Истории\n" +
-                "Оценка " + progrGrade + " по Программированию\n" +
-                "Средний балл по предметам - " + sumGrades + "\n" +
-                "Средний процент по предметам - " + sumPercent + " %");
+                "Оценка " + progGrade + " по Программированию\n" +
+                "Средний балл по предметам - " + averageGrades + "\n" +
+                "Средний процент по предметам - " + averagePercent + " %");
 
         System.out.println("\n8. Расчет прибыли за год");
-        int rent = 5000, sales = 13000, costPrice = 9000;
-        int profit = (sales - costPrice + rent) * 12;
+        int rent = 5000, averageMonthlySales = 13000, costPrice = 9000;
+        int profit = (averageMonthlySales - costPrice + rent) * 12;
         if (profit > 0) {
             System.out.println("Прибыль за год: +" + profit);
         } else {
@@ -148,15 +149,19 @@ public class IfElseStatementTheme {
 
         System.out.println("\n9. Подсчет количества банкнот");
         int sum = 567;
-        int ratingOf100 = 100, ratingOf10 = 10, ratingOf1 = 1;
-        System.out.println("Номиналы банкнот в банкомате: " + ratingOf100 + "$ " + ratingOf10 + "$ " + ratingOf1 + "$");
+        int usd100 = 100, usd10 = 10, usd1 = 1;
+        System.out.println("Номиналы банкнот в банкомате: " + usd100 + "$ " + usd10 + "$ " + usd1 + "$");
         int amountHundreds = sum / 100 % 10;
         int amountTens = sum / 10 % 10;
-        int amountoOnes = sum % 10;
-        if (amountTens > 5) {
-            
+        int amountOnes = sum % 10;
+        int ratingOf10 = 5;
+        if (amountTens >= 5) {
+            ratingOf10 = 5;
+        } else if (amountTens < 5) {
+            ratingOf10 = amountTens;
         }
-        
-        
+        System.out.println("Требуемое количество 100$: " + amountHundreds);
+        System.out.println("Требуемое количество 10$: " + amountTens);
+        System.out.println("Требуемое количество 1$: " + (10 * amountTens - 10 * ratingOf10 + amountOnes));
     }
 } 
