@@ -166,4 +166,4 @@ public class IfElseStatementTheme {
         System.out.println("Исходная сумма: " + (amountHundreds * usd100 + usd10 * ratingOf10 + usd1 * 
                 (10 * amountTens - 10 * ratingOf10 + amountOnes)) + "$");
     }
-} 
+}
