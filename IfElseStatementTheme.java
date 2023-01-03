@@ -163,5 +163,7 @@ public class IfElseStatementTheme {
         System.out.println("Требуемое количество 100$: " + amountHundreds);
         System.out.println("Требуемое количество 10$: " + amountTens);
         System.out.println("Требуемое количество 1$: " + (10 * amountTens - 10 * ratingOf10 + amountOnes));
+        System.out.println("Исходная сумма: " + (amountHundreds * usd100 + usd10 * ratingOf10 + usd1 * 
+                (10 * amountTens - 10 * ratingOf10 + amountOnes)) + "$");
     }
 } 
