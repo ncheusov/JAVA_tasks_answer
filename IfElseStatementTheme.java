@@ -105,38 +105,38 @@ public class IfElseStatementTheme {
         } else if (deposit > 300000) {
             accruedInterest = 10;
         }
-        int amountOfInterest = deposit * accruedInterest / 365;
+        int amountOfInterest = deposit / 100 * accruedInterest;
         int totalSum = deposit + amountOfInterest;
         System.out.println("Сумма вклада: " + deposit);
         System.out.println("Начисленный %: " + amountOfInterest);
         System.out.println("Итоговая сумма с %: " + totalSum);
 
         System.out.println("\n7. Определение оценки по предметам");
-        int historyPoints = 59, progPoints = 91;
-        int historyGrade = 0, progGrade = 0;
-        if (historyPoints <= 60) {
+        int historyPercent = 59, progPercent = 91;
+        int historyGrade = 2, progGrade = 2;
+        if (historyPercent <= 60) {
             historyGrade = 2;
-        } else if (historyPoints > 60) {
+        } else if (historyPercent > 60) {
             historyGrade = 3;
-        } else if (historyPoints > 73) {
+        } else if (historyPercent > 73) {
             historyGrade = 4;
-        } else if (historyPoints > 91) {
+        } else if (historyPercent > 91) {
             historyGrade = 5;
-        } else if (progPoints <= 60) {
+        } else if (progPercent <= 60) {
             progGrade = 2;
-        } else if (progPoints > 60) {
+        } else if (progPercent > 60) {
             progGrade = 3;
-        } else if (progPoints > 73) {
+        } else if (progPercent > 73) {
             progGrade = 4;
-        } else if (progPoints > 91) {
+        } else if (progPercent > 91) {
             progGrade = 5;
         }
         int averageGrades = (historyGrade + progGrade) / 2;
-        int averagePercent = (historyPoints + progPoints ) / 2;
+        int averagePercent = (historyPercent + progPercent) / 2;
         System.out.println("Оценка " + historyGrade + " по Истории\n" +
                 "Оценка " + progGrade + " по Программированию\n" +
                 "Средний балл по предметам - " + averageGrades + "\n" +
-                "Средний процент по предметам - " + averagePercent + " %");
+                "Средний процент по предметам - " + averagePercent + "%");
 
         System.out.println("\n8. Расчет прибыли за год");
         int rent = 5000, averageMonthlySales = 13000, costPrice = 9000;
@@ -154,10 +154,10 @@ public class IfElseStatementTheme {
         int amountHundreds = sum / 100 % 10;
         int amountTens = sum / 10 % 10;
         int amountOnes = sum % 10;
-        int ratingOf10 = 5;
-        if (amountTens >= 5) {
+        int ratingOf100 = 10, ratingOf10 = 5, ratingOf1 = 50;
+        if (amountTens >= ratingOf10) {
             ratingOf10 = 5;
-        } else if (amountTens < 5) {
+        } else if (amountTens < ratingOf10) {
             ratingOf10 = amountTens;
         }
         System.out.println("Требуемое количество 100$: " + amountHundreds);
