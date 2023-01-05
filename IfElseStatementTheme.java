@@ -97,13 +97,11 @@ public class IfElseStatementTheme {
         }
         
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
-        int deposit = 310000, accruedInterest = 0;
+        int deposit = 310000, accruedInterest = 10;
         if (deposit <= 100000) {
             accruedInterest = 5; 
         } else if (deposit >= 100000 && deposit <= 300000) {
             accruedInterest = 7;
-        } else if (deposit > 300000) {
-            accruedInterest = 10;
         }
         int amountOfInterest = deposit / 100 * accruedInterest;
         int totalSum = deposit + amountOfInterest;
@@ -122,7 +120,8 @@ public class IfElseStatementTheme {
             historyGrade = 4;
         } else if (historyPercent > 91) {
             historyGrade = 5;
-        } else if (progPercent <= 60) {
+        }
+        if (progPercent <= 60) {
             progGrade = 2;
         } else if (progPercent > 60) {
             progGrade = 3;
@@ -149,21 +148,25 @@ public class IfElseStatementTheme {
 
         System.out.println("\n9. Подсчет количества банкнот");
         int sum = 567;
-        int usd100 = 100, usd10 = 10, usd1 = 1;
-        System.out.println("Номиналы банкнот в банкомате: " + usd100 + "$ " + usd10 + "$ " + usd1 + "$");
-        int amountHundreds = sum / 100 % 10;
-        int amountTens = sum / 10 % 10;
-        int amountOnes = sum % 10;
-        int ratingOf100 = 10, ratingOf10 = 5, ratingOf1 = 50;
-        if (amountTens >= ratingOf10) {
-            ratingOf10 = 5;
-        } else if (amountTens < ratingOf10) {
-            ratingOf10 = amountTens;
+        int hundredsInStock = 10;
+        int tensInStock = 5;
+        int onesInStock = 50;
+        int needHundreds = sum / 100 % 10;
+        int needTens = sum / 10 % 10;
+        int needOnes = sum % 10;
+        if (needHundreds > hundredsInStock) {
+            needTens = (needTens - tensInStock) * 10 + needTens;
+            needHundreds = hundredsInStock;
         }
-        System.out.println("Требуемое количество 100$: " + amountHundreds);
-        System.out.println("Требуемое количество 10$: " + amountTens);
-        System.out.println("Требуемое количество 1$: " + (10 * amountTens - 10 * ratingOf10 + amountOnes));
-        System.out.println("Исходная сумма: " + (amountHundreds * usd100 + usd10 * ratingOf10 + usd1 * 
-                (10 * amountTens - 10 * ratingOf10 + amountOnes)) + "$");
+        if (needTens > tensInStock) {
+            needOnes = (needTens - tensInStock) * 10 + needOnes;
+            needTens = tensInStock;
+        }
+        if (needOnes > onesInStock) {
+            System.out.println("Сумму " + sum + " выдать невозможно");
+        } else {
+            System.out.println("К выдаче:\n" + needHundreds + " сотен\n" + needTens + " десяток\n"
+                + needOnes + " еденичек\nИтого: " + (needHundreds * 100 + needTens * 10 + needOnes));
+        }
     }
 }
