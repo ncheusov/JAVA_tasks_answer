@@ -44,15 +44,10 @@ public class IfElseStatementTheme {
         System.out.println("\n3. Проверка числа");
         int randomNum = 567;
         if (randomNum != 0) {
-            if (randomNum % 2 == 0) {
-                System.out.println(randomNum + " является четным");
-            } else {
-                System.out.println("Число нечетное");
-            }
-            if (randomNum < 0) {
-                System.out.println("Число " + randomNum + " отрицательное");
-            } else {
-                System.out.println(randomNum + " является положительным");
+            if (randomNum % 2 == 0 && randomNum > 0) {
+                System.out.println(randomNum + " является четным и положительным");
+            } else if {
+                System.out.println("Число нечетное и отрицательное");
             }
         } else {
             System.out.println("Число равно 0");
@@ -112,18 +107,14 @@ public class IfElseStatementTheme {
         System.out.println("\n7. Определение оценки по предметам");
         int historyPercent = 59, progPercent = 91;
         int historyGrade = 2, progGrade = 2;
-        if (historyPercent <= 60) {
-            historyGrade = 2;
-        } else if (historyPercent > 60) {
+        if (historyPercent > 60) {
             historyGrade = 3;
         } else if (historyPercent > 73) {
             historyGrade = 4;
         } else if (historyPercent > 91) {
             historyGrade = 5;
         }
-        if (progPercent <= 60) {
-            progGrade = 2;
-        } else if (progPercent > 60) {
+        if (progPercent > 60) {
             progGrade = 3;
         } else if (progPercent > 73) {
             progGrade = 4;
