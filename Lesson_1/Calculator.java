@@ -8,20 +8,15 @@ public class Calculator {
 
         if (sign == '+') {
             result = numA + numB;
-        }
-        if (sign == '-') {
+        } else if (sign == '-') {
             result = numA - numB;
-        }
-        if (sign == '*') {
+        } else if (sign == '*') {
             result = numA * numB;
-        }
-        if (sign == '/') {
+        } else if (sign == '/') {
             result = numA / numB;
-        }
-        if (sign == '%') {
+        } else if (sign == '%') {
             result = numA % numB;
-        }
-        if (sign == '^') {
+        } else if (sign == '^') {
             for (int i = 1; i <= numB; i++) {
                 result *= numA;
             }
