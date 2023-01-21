@@ -2,7 +2,7 @@ public class GuessTheNumberGame {
 
     public static void main(String[] args) {
         int computerNumber = 11;
-        int playerNumber = 100;
+        int playerNumber = 50;
         for (int i = 1; i <= 1000; i++) {
             if (playerNumber == computerNumber) {
                 System.out.println("Число - " + computerNumber + " Вы победили!");
