@@ -9,11 +9,10 @@ public class Jaeger {
     private int strength;
     private int armor;
 
-    public Jaeger() {
+    public Jaeger() {}
 
-    }
-
-    public Jaeger(String modelName, String mark, String origin, float height, float weight, int speed, int strength, int armor) {
+    public Jaeger(String modelName, String mark, String origin,
+        float height, float weight, int speed, int strength, int armor) {
         if (modelName == "") {
             System.out.println("Пустая строка");
         } else {
@@ -103,7 +102,7 @@ public class Jaeger {
         if (strength <= 0) {
             System.out.println("Сила не может быть меньше или равна нуля!");
         } else if (strength > 10) {
-            System.out.println("Некоректное значение для силы");
+            System.out.println("Некорректное значение для силы");
         } else {
             this.strength = strength;
         }
