@@ -1,7 +1,17 @@
+import java.util.Scanner;
+
 public class CalculatorTest {
 
     public static void main(String[] args) {
         Calculator myCalculator = new Calculator();
-        myCalculator.calc();
+        myCalculator.start();
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Хотите продолжить вычисления? [yes/no]");
+        String answer = scan.nextLine();
+        while (answer.equals("yes")) {
+            myCalculator.start();
+            System.out.print("Хотите продолжить вычисления? [yes/no]");
+            answer = scan.nextLine();
+        }
     }
 }
