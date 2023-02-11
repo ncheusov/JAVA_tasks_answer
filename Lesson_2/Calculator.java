@@ -1,22 +1,23 @@
-import java.util.Scanner;
-
 public class Calculator {
-    Scanner scan = new Scanner(System.in);
+
     private int numA;
     private int numB;
     private int result;
     private char sign;
 
+    public void setNumA(int numA) {
+        this.numA = numA;
+    }
+
+    public void setNumB(int numB) {
+        this.numB = numB;
+    }
+
+    public void setSign(char sign) {
+        this.sign = sign;
+    }
+
     public void start() {
-        System.out.print("Введите первое число: ");
-        numA = scan.nextInt();
-        // Здесь на следующей строчке возникает ошибка
-        // решается при добавлении еще одного scan.nextLine();
-        scan.nextLine();
-        System.out.print("Введите знак математической операции: ");
-        sign = scan.nextLine().charAt(0);
-        System.out.print("Ведите второе число: ");
-        numB = scan.nextInt();
         switch (sign) {
             case '+':
                 result = numA + numB;
