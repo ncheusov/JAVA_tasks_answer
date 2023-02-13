@@ -21,7 +21,7 @@ public class CalculatorTest {
             scan.nextLine();
             String answer = scan.nextLine();
             while (!answer.equals("yes") && !answer.equals("no")) {
-                System.out.print("Пожалуйста введите yes или no: ");
+                System.out.print("Пожалуйста, введите yes или no: ");
                 answer = scan.nextLine();
                 if (answer.equals("yes")) {
                     continue;
