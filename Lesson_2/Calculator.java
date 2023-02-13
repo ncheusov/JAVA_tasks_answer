@@ -1,45 +1,45 @@
 public class Calculator {
 
-    private int numA;
-    private int numB;
-    private int result;
+    private int num1;
+    private int num2;
     private char sign;
 
-    public void setNumA(int numA) {
-        this.numA = numA;
+    public void setNum1(int num1) {
+        this.num1 = num1;
     }
 
-    public void setNumB(int numB) {
-        this.numB = numB;
+    public void setNum2(int num2) {
+        this.num2 = num2;
     }
 
     public void setSign(char sign) {
         this.sign = sign;
     }
 
-    public void start() {
+    public void calculate() {
+        int result = 1;
         switch (sign) {
             case '+':
-                result = numA + numB;
+                result = num1 + num2;
                 break;
             case '-':
-                result = numA - numB;
+                result = num1 - num2;
                 break;
             case '*':
-                result = numA * numB;
+                result = num1 * num2;
                 break;
             case '/':
-                result = numA / numB;
+                result = num1 / num2;
                 break;
             case '%':
-                result = numA % numB;
+                result = num1 % num2;
                 break;
             case '^':
-                for (int i = 1; i <= numB; i++) {
-                    result *= numA;
+                for (int i = 1; i <= num2; i++) {
+                    result *= num1;
                 }
                 break;
         }
-        System.out.println("Результат: " + numA + " " + sign + " " + numB + " = " + result);
+        System.out.println("Результат: " + num1 + " " + sign + " " + num2 + " = " + result);
     }
 }
