@@ -32,6 +32,7 @@ public class CalculatorTest {
             if (answer.equals("no")) {
                 break;
             }
+            scan.close();
         }
     }
 }
