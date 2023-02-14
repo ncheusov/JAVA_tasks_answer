@@ -29,7 +29,9 @@ public class CalculatorTest {
                     break;
                 }
             }
-            if (answer.equals("no")) {
+            if (answer.equals("yes")) {
+                continue;
+            } else if (answer.equals("no")) {
                 break;
             }
             scan.close();
