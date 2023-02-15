@@ -19,7 +19,7 @@ public class CalculatorTest {
                 myCalculator.setNum2(scan.nextInt());
                 myCalculator.calculate();
             }
-            System.out.print("Хотите продолжить вычисления? [yes/no] ");
+            System.out.println("Хотите продолжить вычисления? [yes/no] ");
             scan.nextLine();
             answer = scan.nextLine();
         }
