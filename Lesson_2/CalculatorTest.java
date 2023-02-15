@@ -18,14 +18,10 @@ public class CalculatorTest {
                 System.out.print("Введите второе число: ");
                 myCalculator.setNum2(scan.nextInt());
                 myCalculator.calculate();
-
-                System.out.print("Хотите продолжить вычисления? [yes/no] ");
-                scan.nextLine();
-                answer = scan.nextLine();
-            } else if (!answer.equals("yes") && !answer.equals("no")) {
-                System.out.print("Пожалуйста, введите yes или no: ");
-                answer = scan.nextLine();
             }
+            System.out.print("Хотите продолжить вычисления? [yes/no] ");
+            scan.nextLine();
+            answer = scan.nextLine();
         }
     }
 }
