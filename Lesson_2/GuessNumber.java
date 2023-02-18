@@ -3,7 +3,11 @@ import java.util.Scanner;
 public class GuessNumber {
 
     private int computerNumber = (int) Math.round(Math.random() * 100);
-    Scanner scan = new Scanner(System.in);
+    private Scanner scan = new Scanner(System.in);
+
+    public void setComputerNumber(int number) {
+        computerNumber = number;
+    }
 
     public void start() {
         System.out.println("Имя первого игрока: ");
