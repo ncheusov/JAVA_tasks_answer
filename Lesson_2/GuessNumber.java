@@ -7,15 +7,9 @@ public class GuessNumber {
 
     public void start() {
         System.out.println("Имя первого игрока: ");
-        Player player1 = new Player(scan.nextLine());
-        /*  добавление еще одного scan.nextLine() баг не фиксит
-            поведение остается точно таким же, даже если ввести
-            имя при повторном запуске, то в сеттер имени первого
-            игрока записывается пустота
-        */
-        // scan.nextLine();
+        Player player1 = new Player(scan.next());
         System.out.println("Имя второго игрока: ");
-        Player player2 = new Player(scan.nextLine());
+        Player player2 = new Player(scan.next());
 
         System.out.print(player1.getName() + ", угадай число: ");
         player1.setNumber(scan.nextInt());
