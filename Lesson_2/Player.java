@@ -11,11 +11,11 @@ public class Player {
         return name;
     }
 
-    public void setNumber(int playerNumber) {
-        if (playerNumber > 100 || playerNumber < 0) {
-            System.out.print("Число должно быть в диапазоне от 0 до 100");
+    public void setNumber(int number) {
+        if (number > 100 || number < 1) {
+            System.out.println("Число должно быть в полуинтервале от 0 до 100");
         } else {
-            number = playerNumber;
+            this.number = number;
         }
     }
 

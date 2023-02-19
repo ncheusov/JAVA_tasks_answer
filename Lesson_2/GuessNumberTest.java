@@ -1,20 +1,21 @@
 import java.util.Scanner;
-import java.util.Random;
 
 public class GuessNumberTest {
 
     public static void main(String[] args) {
-        GuessNumber game = new GuessNumber();
         Scanner scan = new Scanner(System.in);
-        Random randInt = new Random();
+        GuessNumber game = new GuessNumber();
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
-                game.start();
+                System.out.println("Имя первого игрока: ");
+                Player player1 = new Player(scan.next());
+                System.out.println("Имя второго игрока: ");
+                Player player2 = new Player(scan.next());
+                game.start(player1, player2);
             }
-            int computerNumber = randInt.nextInt(6) + 1;
-            game.setComputerNumber(computerNumber);
             System.out.println("Хотите продолжить игру? [yes/no]");
+            scan.nextLine();
             answer = scan.nextLine();
         }
         scan.close();
