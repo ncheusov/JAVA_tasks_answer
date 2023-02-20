@@ -3,9 +3,8 @@ import java.util.Random;
 
 public class GuessNumber {
 
-    private Scanner scan = new Scanner(System.in);
-    private Player player1 = new Player();
-    private Player player2 = new Player();
+    private Player player1;
+    private Player player2;
 
     public GuessNumber(Player player1, Player player2) {
         this.player1 = player1;
@@ -13,6 +12,7 @@ public class GuessNumber {
     }
 
     public void start() {
+        Scanner scan = new Scanner(System.in);
         Random randInt = new Random();
         int computerNumber = randInt.nextInt(100) + 1;
         while (true) {
