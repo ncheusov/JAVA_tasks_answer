@@ -1,3 +1,6 @@
+// finalhw means final homework
+package com.startjava.lesson_1.finalhw;
+
 public class Calculator {
 
     public static void main(String[] args) {

@@ -1,3 +1,5 @@
+package com.startjava.lesson_1.base;
+
 public class IfElseStatementTheme {
 
     public static void main(String[] args) {
@@ -46,7 +48,7 @@ public class IfElseStatementTheme {
         if (randomNum != 0) {
             if (randomNum % 2 == 0 && randomNum > 0) {
                 System.out.println(randomNum + " является четным и положительным");
-            } else if {
+            } else {
                 System.out.println("Число нечетное и отрицательное");
             }
         } else {
