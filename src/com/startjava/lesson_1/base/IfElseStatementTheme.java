@@ -1,4 +1,4 @@
-package com.startjava.lesson_1.base;
+package startjava.lesson_1.base;
 
 public class IfElseStatementTheme {
 
@@ -92,11 +92,11 @@ public class IfElseStatementTheme {
         } else {
             System.out.println("Не буква и не число");
         }
-        
+
         System.out.println("\n6. Подсчет суммы вклада и начисленных банком %");
         int deposit = 310000, accruedInterest = 10;
         if (deposit <= 100000) {
-            accruedInterest = 5; 
+            accruedInterest = 5;
         } else if (deposit >= 100000 && deposit <= 300000) {
             accruedInterest = 7;
         }

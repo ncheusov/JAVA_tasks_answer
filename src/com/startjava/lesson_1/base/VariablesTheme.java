@@ -1,4 +1,4 @@
-package com.startjava.lesson_1.base;
+package startjava.lesson_1.base;
 
 public class VariablesTheme {
 
@@ -62,22 +62,22 @@ public class VariablesTheme {
         int digit1 = 2;
         int digit2 = 5;
         System.out.println("Метод с помощью третьей переменной\n" +
-            "    исходное значение переменной digit1: " + digit1 + 
-            ", исходное значение переменной digit2: " + digit2);
+                "    исходное значение переменной digit1: " + digit1 +
+                ", исходное значение переменной digit2: " + digit2);
         int tmp = digit1;
         digit1 = digit2;
         digit2 = tmp;
         System.out.println("    новое значение переменной digit1: " + digit1 + ", и digit2: " + digit2);
         System.out.println("Метод с помощью арифметических действий\n" +
-            "    исходное значение переменной digit1: " + digit1 + 
-            ", исходное значение переменной digit2: " + digit2);
+                "    исходное значение переменной digit1: " + digit1 +
+                ", исходное значение переменной digit2: " + digit2);
         digit1 += digit2;
         digit2 = digit1 - digit2;
         digit1 -= digit2;
         System.out.println("    новое значение переменной digit1: " + digit1 + ", и digit2: " + digit2);
         System.out.println("Метод с помощью побитовой операции \n" +
-            "    исходное значение переменной digit1: " + digit1 + 
-            ", исходное значение переменной digit2: " + digit2);
+                "    исходное значение переменной digit1: " + digit1 +
+                ", исходное значение переменной digit2: " + digit2);
         digit1 ^= digit2;
         digit2 ^= digit1;
         digit1 ^= digit2;
@@ -111,9 +111,9 @@ public class VariablesTheme {
         int ones = num % 10;
         int tens = num % 100;
         int hundreds = num / 100;
-        System.out.println("Число " + num + " содержит:\n    " + 
-                ones + " единицы\n    " + 
-                tens + " десятка\n    " + 
+        System.out.println("Число " + num + " содержит:\n    " +
+                ones + " единицы\n    " +
+                tens + " десятка\n    " +
                 hundreds + " сотня");
 
         System.out.println("\n9. Вывод времени.");

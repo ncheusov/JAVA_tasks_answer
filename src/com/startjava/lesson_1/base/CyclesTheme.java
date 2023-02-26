@@ -1,4 +1,4 @@
-package com.startjava.lesson_1.base;
+package startjava.lesson_1.base;
 
 public class CyclesTheme {
 
@@ -163,7 +163,7 @@ public class CyclesTheme {
             sumOfRightSide += onesOfRightSide;
             rightSideOfHappyNum /= 10;
         }
-        System.out.println("Сумма цифр левой стороны = " + sumOfLeftSide 
+        System.out.println("Сумма цифр левой стороны = " + sumOfLeftSide
                 + "\nСумма цифр правой стороны = " + sumOfRightSide);
         if (sumOfRightSide == sumOfLeftSide) {
             System.out.println("Число " + happyNum + " является счастливым");
