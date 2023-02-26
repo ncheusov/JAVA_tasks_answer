@@ -1,5 +1,5 @@
 // finalhw means final homework
-package com.startjava.lesson_1.finalhw;
+package startjava.lesson_1.finalhw;
 
 public class Calculator {
 

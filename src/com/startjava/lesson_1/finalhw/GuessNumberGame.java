@@ -1,4 +1,5 @@
-package com.startjava.lesson_1.finalhw;// finalhw means final homework
+// finalhw means final homework
+package startjava.lesson_1.finalhw;
 
 public class GuessNumberGame {
 
