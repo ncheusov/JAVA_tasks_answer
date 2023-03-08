@@ -1,8 +1,5 @@
 package startjava.lesson_2_3_4.array;
 
-import javax.sound.midi.Soundbank;
-import java.util.Arrays;
-
 public class ArrayTheme {
 
     public static void main(String[] args) {
