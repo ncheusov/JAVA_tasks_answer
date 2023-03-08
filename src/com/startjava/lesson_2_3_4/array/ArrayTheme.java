@@ -1,5 +1,6 @@
 package startjava.lesson_2_3_4.array;
 
+import javax.sound.midi.Soundbank;
 import java.util.Arrays;
 
 public class ArrayTheme {
@@ -37,5 +38,41 @@ public class ArrayTheme {
             System.out.print(printResult);
         }
         System.out.println("\n" + numbersArr[0] + " " + numbersArr[9]);
+
+        System.out.println("\n3. Удаление элементов массива");
+        double[] doublesArr = new double[15];
+        double[] modifiedArr = new double[15];
+        arrLength = doublesArr.length;
+        int zeroes = 0;
+        for (int i = 0; i < arrLength; i++) {
+            doublesArr[i] = Math.random();
+            modifiedArr[i] = doublesArr[i];
+            int middleIndex = arrLength / 2;
+            if (modifiedArr[i] > modifiedArr[middleIndex]) {
+                modifiedArr[i] = 0;
+                if (modifiedArr[i] == 0) {
+                    zeroes += 1;
+                }
+            }
+        }
+        System.out.println("Массив до модификации");
+        for (int i = 0; i < arrLength; i++) {
+            String formattedNum = String.format("%.3f", doublesArr[i]);
+            if (i != 7) {
+                System.out.print(formattedNum + " ");
+            } else {
+                System.out.println();
+            }
+        }
+        System.out.println("\nМассив после модификации");
+        for (int i = 0; i < arrLength; i++) {
+            String formattedNum = String.format("%.3f", modifiedArr[i]);
+            if (i != 7) {
+                System.out.print(formattedNum + " ");
+            } else {
+                System.out.println();
+            }
+        }
+        System.out.println("\nКоличество обнуленных ячеек: " + zeroes);
     }
 }
