@@ -6,46 +6,47 @@ public class ArrayTheme {
 
     public static void main(String[] args) {
         System.out.println("1. Реверс значений массива");
-        int[] numbersArr = {2, 5, 7, 3, 1, 4, 6};
-        int arrLength = numbersArr.length;
+        int[] intArr = {2, 5, 7, 3, 1, 4, 6};
+        int arrLength = intArr.length;
+        int tmp;
         System.out.print("Массив до модификации: ");
-        for (int number : numbersArr) {
-            System.out.print(number + " ");
+        for (int digit : intArr) {
+            System.out.print(digit + " ");
         }
         System.out.println();
         for (int i = 0; i < arrLength / 2; i++) {
-            int tmp = numbersArr[i];
-            numbersArr[i] = numbersArr[arrLength - 1 - i];
-            numbersArr[arrLength - 1 - i] = tmp;
+            tmp = intArr[i];
+            intArr[i] = intArr[arrLength - 1 - i];
+            intArr[arrLength - 1 - i] = tmp;
         }
         System.out.print("Массив после модификации: ");
-        for (int number : numbersArr) {
-            System.out.print(number + " ");
+        for (int digit : intArr) {
+            System.out.print(digit + " ");
         }
 
         System.out.println("\n\n2. Вывод произведения элементов массива");
-        numbersArr = new int[10];
-        arrLength = numbersArr.length;
+        intArr = new int[10];
+        arrLength = intArr.length;
         int result = 1;
         for (int i = 0; i < arrLength; i++) {
-            numbersArr[i] += i;
+            intArr[i] += i;
         }
-        for (int i = numbersArr[1]; i < numbersArr[9]; i++) {
-            result *= numbersArr[i];
-            System.out.print(numbersArr[i]);
+        for (int i = intArr[1]; i < intArr[9]; i++) {
+            result *= intArr[i];
+            System.out.print(intArr[i]);
             String printResult = i != 8 ? " * " : " = " + result;
             System.out.print(printResult);
         }
-        System.out.println("\n" + numbersArr[0] + " " + numbersArr[9]);
+        System.out.println("\n" + intArr[0] + " " + intArr[9]);
 
         System.out.println("\n3. Удаление элементов массива");
-        double[] doublesArr = new double[15];
+        double[] doubleArr = new double[15];
         double[] modifiedArr = new double[15];
-        arrLength = doublesArr.length;
+        arrLength = doubleArr.length;
         int zeroes = 0;
         for (int i = 0; i < arrLength; i++) {
-            doublesArr[i] = Math.random();
-            modifiedArr[i] = doublesArr[i];
+            doubleArr[i] = Math.random();
+            modifiedArr[i] = doubleArr[i];
             int middleIndex = arrLength / 2;
             if (modifiedArr[i] > modifiedArr[middleIndex]) {
                 modifiedArr[i] = 0;
@@ -56,7 +57,7 @@ public class ArrayTheme {
         }
         System.out.println("Массив до модификации");
         for (int i = 0; i < arrLength; i++) {
-            String formattedNum = String.format("%.3f", doublesArr[i]);
+            String formattedNum = String.format("%.3f", doubleArr[i]);
             if (i != 7) {
                 System.out.print(formattedNum + " ");
             } else {
@@ -87,6 +88,36 @@ public class ArrayTheme {
             System.out.println();
         }
 
-
+        System.out.println("\n5. Генерация уникальных чисел");
+        intArr = new int[30];
+        arrLength = intArr.length;
+        boolean isSorted = false;
+        for (int i = 1; i < arrLength; i++) {
+            intArr[i] = (60 + (int) (Math.random() * 40));
+        }
+        for (int i = 0; i < arrLength; i++) {
+            for (int j = i + 1; j < arrLength; j++) {
+                while (intArr[i] == intArr[j]) {
+                    intArr[j] = (60 + (int) (Math.random() * 40));
+                }
+            }
+        }
+        while (!isSorted) {
+            isSorted = true;
+            for (int i = 0; i < arrLength - 1; i++) {
+                if (intArr[i] > intArr[i + 1]) {
+                    isSorted = false;
+                    tmp = intArr[i];
+                    intArr[i] = intArr[i + 1];
+                    intArr[i + 1] = tmp;
+                }
+            }
+        }
+        for (int i = 0; i < arrLength; i++) {
+            System.out.print(intArr[i] + " ");
+            if ((i + 1) % 10 == 0) {
+                System.out.println();
+            }
+        }
     }
 }

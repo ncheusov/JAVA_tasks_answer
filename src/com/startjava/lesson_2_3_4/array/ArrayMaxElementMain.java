@@ -16,10 +16,10 @@ public class ArrayMaxElementMain {
             numbers[i] = scanner.nextInt();
         }
 
-        int max = numbers[0];
-        for (int i = 0; i < maxLength - 1; i++) {
-            if (max < numbers[i + 1]) {
-                max = numbers[i + 1];
+        int max = numbers[maxLength - 1];
+        for (int i = maxLength - 1; i > 0; i--) {
+            if (max > numbers[i - 1]) {
+                max = numbers[i - 1];
             }
         }
         System.out.println(max + " – максимальное число");
