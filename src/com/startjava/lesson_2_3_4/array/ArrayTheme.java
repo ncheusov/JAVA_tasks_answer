@@ -1,5 +1,7 @@
 package startjava.lesson_2_3_4.array;
 
+import java.util.Arrays;
+
 public class ArrayTheme {
 
     public static void main(String[] args) {
@@ -71,5 +73,20 @@ public class ArrayTheme {
             }
         }
         System.out.println("\nКоличество обнуленных ячеек: " + zeroes);
+
+        System.out.println("\n4. Вывод элементов массива лесенкой в обратном порядке");
+        char[] alphabet = new char[26];
+        arrLength = alphabet.length;
+        for (int i = 0; i < arrLength; i++) {
+            alphabet[i] = (char) ('A' + i);
+        }
+        for (int i = arrLength - 1; i >= 0; i--) {
+            for (int j = arrLength - 1; j >= i; j--) {
+                System.out.print(alphabet[j]);
+            }
+            System.out.println();
+        }
+
+
     }
 }
