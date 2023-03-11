@@ -34,7 +34,7 @@ public class ArrayTheme {
         for (int i = intArr[1]; i < intArr[9]; i++) {
             result *= intArr[i];
             System.out.print(intArr[i]);
-            String printResult = i != 8 ? " * " : " = " + result;
+            String printResult = i != arrLength - 2 ? " * " : " = " + result;
             System.out.print(printResult);
         }
         System.out.println("\n" + intArr[0] + " " + intArr[9]);
@@ -57,19 +57,15 @@ public class ArrayTheme {
         }
         System.out.println("Массив до модификации");
         for (int i = 0; i < arrLength; i++) {
-            String formattedNum = String.format("%.3f", doubleArr[i]);
-            if (i != 7) {
-                System.out.print(formattedNum + " ");
-            } else {
+            System.out.printf("%8.3f", modifiedArr[i]);
+            if ((i + 1) % 8 == 0) {
                 System.out.println();
             }
         }
         System.out.println("\nМассив после модификации");
         for (int i = 0; i < arrLength; i++) {
-            String formattedNum = String.format("%.3f", modifiedArr[i]);
-            if (i != 7) {
-                System.out.print(formattedNum + " ");
-            } else {
+            System.out.printf("%8.3f", modifiedArr[i]);
+            if ((i + 1) % 8 == 0) {
                 System.out.println();
             }
         }
@@ -102,14 +98,12 @@ public class ArrayTheme {
                 }
             }
         }
-        while (!isSorted) {
-            isSorted = true;
-            for (int i = 0; i < arrLength - 1; i++) {
-                if (intArr[i] > intArr[i + 1]) {
-                    isSorted = false;
-                    tmp = intArr[i];
-                    intArr[i] = intArr[i + 1];
-                    intArr[i + 1] = tmp;
+        for (int i = 0; i < arrLength - 1; i++) {
+            for (int j = 0; j < arrLength - 1; j++) {
+                if (intArr[j] > intArr[j + 1]) {
+                    tmp = intArr[j];
+                    intArr[j] = intArr[j + 1];
+                    intArr[j + 1] = tmp;
                 }
             }
         }
@@ -119,5 +113,13 @@ public class ArrayTheme {
                 System.out.println();
             }
         }
+
+        System.out.println("\n6. Копирование не пустых строк");
+        String[] stringsArr1 = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        String[] stringsArr2 = new String[11];
+        arrLength = stringsArr1.length;
+        System.arraycopy(stringsArr1, 0, stringsArr2, 0, 11);
+        System.out.println(Arrays.toString(stringsArr2));
+
     }
 }
