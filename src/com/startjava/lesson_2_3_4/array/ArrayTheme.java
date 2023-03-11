@@ -1,7 +1,5 @@
 package startjava.lesson_2_3_4.array;
 
-import java.util.Arrays;
-
 public class ArrayTheme {
 
     public static void main(String[] args) {
@@ -87,8 +85,7 @@ public class ArrayTheme {
         System.out.println("\n5. Генерация уникальных чисел");
         intArr = new int[30];
         arrLength = intArr.length;
-        boolean isSorted = false;
-        for (int i = 1; i < arrLength; i++) {
+        for (int i = 0; i < arrLength; i++) {
             intArr[i] = (60 + (int) (Math.random() * 40));
         }
         for (int i = 0; i < arrLength; i++) {
@@ -116,10 +113,27 @@ public class ArrayTheme {
 
         System.out.println("\n6. Копирование не пустых строк");
         String[] stringsArr1 = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
-        String[] stringsArr2 = new String[11];
         arrLength = stringsArr1.length;
-        System.arraycopy(stringsArr1, 0, stringsArr2, 0, 11);
-        System.out.println(Arrays.toString(stringsArr2));
-
+        int index = 0;
+        for (int i = 0; i <= arrLength - 1; i++) {
+            if (stringsArr1[i].isBlank()) {
+                index++;
+            }
+        }
+        String[] stringsArr2 = new String[arrLength - index];
+        System.arraycopy(stringsArr1, 1, stringsArr2, 0, 1);
+        System.arraycopy(stringsArr1, 3, stringsArr2, 1, 3);
+        System.arraycopy(stringsArr1, 7, stringsArr2, 4, 3);
+        for (String str : stringsArr1) {
+            if (str.isBlank()) {
+                System.out.print(str);
+            } else {
+                System.out.print(str + " ");
+            }
+        }
+        System.out.println();
+        for (String str : stringsArr2) {
+            System.out.print(str + " ");
+        }
     }
 }
