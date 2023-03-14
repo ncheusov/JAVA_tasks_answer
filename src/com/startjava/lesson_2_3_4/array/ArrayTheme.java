@@ -96,7 +96,7 @@ public class ArrayTheme {
             }
         }
         for (int i = 0; i < arrLength - 1; i++) {
-            for (int j = 0; j < i; j++) {
+            for (int j = 0; j < arrLength - 1; j++) {
                 if (intArr[j] > intArr[j + 1]) {
                     tmp = intArr[j];
                     intArr[j] = intArr[j + 1];
