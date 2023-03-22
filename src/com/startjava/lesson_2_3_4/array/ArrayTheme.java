@@ -41,12 +41,9 @@ public class ArrayTheme {
         printFormattedArr(doubleArr);
         int zeroes = 0;
         for (int i = 0; i < len; i++) {
-            int middleIndex = len / 2;
-            if (doubleArr[i] > doubleArr[middleIndex]) {
+            if (doubleArr[i] > doubleArr[len / 2]) {
                 doubleArr[i] = 0;
-                if (doubleArr[i] == 0) {
-                    zeroes++;
-                }
+                zeroes++;
             }
         }
         System.out.println("\nМассив после модификации");
@@ -69,14 +66,14 @@ public class ArrayTheme {
         System.out.println("\n5. Генерация уникальных чисел");
         intArr = new int[30];
         len = intArr.length;
-        int randomNum = 0;
         for (int i = 0; i < len; i++) {
+            int randomNum = intArr[i];
             while (contains(intArr, randomNum)) {
                 randomNum = (60 + (int) (Math.random() * 40));
             }
             intArr[i] = randomNum;
         }
-        for (int i = 0; i < len - 1; i++) {
+        for (int i = 0; i < len; i++) {
             for (int j = 0; j < len - 1 - i; j++) {
                 if (intArr[j] > intArr[j + 1]) {
                     int tmp = intArr[j];
@@ -93,22 +90,22 @@ public class ArrayTheme {
         }
 
         System.out.println("\n6. Копирование не пустых строк");
-        String[] stringsArr1 = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
-        len = stringsArr1.length;
-        int count = 0;
-        for (int i = 0; i <= len - 1; i++) {
-            if (stringsArr1[i].isBlank()) {
-                count++;
-            }
-        }
-        String[] stringsArr2 = new String[len - count];
-        int j = 0;
+        String[] srcArr = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
+        len = srcArr.length;
+        int lenCounter = 0;
         for (int i = 0; i < len; i++) {
-            if (!stringsArr1[i].isBlank()) {
-                System.arraycopy(stringsArr1, i, stringsArr2, j++, 1);
+            if (!srcArr[i].isBlank()) {
+                lenCounter++;
             }
         }
-        for (String str : stringsArr1) {
+        String[] destArr = new String[lenCounter];
+        int srcPos = 0;
+        for (int destPos = 0; destPos < len; destPos++) {
+            if (!srcArr[destPos].isBlank()) {
+                System.arraycopy(srcArr, destPos, destArr, srcPos++, 1);
+            }
+        }
+        for (String str : srcArr) {
             if (str.isBlank()) {
                 System.out.print(str);
             } else {
@@ -116,7 +113,7 @@ public class ArrayTheme {
             }
         }
         System.out.println();
-        for (String str : stringsArr2) {
+        for (String str : destArr) {
             System.out.print(str + " ");
         }
     }
