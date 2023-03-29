@@ -40,8 +40,9 @@ public class ArrayTheme {
         System.out.println("Массив до модификации");
         printFormattedArr(doubleArr);
         int zeroes = 0;
+        double middleIndex = doubleArr[len / 2];
         for (int i = 0; i < len; i++) {
-            if (doubleArr[i] > doubleArr[len / 2]) {
+            if (doubleArr[i] > middleIndex) {
                 doubleArr[i] = 0;
                 zeroes++;
             }
@@ -67,10 +68,10 @@ public class ArrayTheme {
         intArr = new int[30];
         len = intArr.length;
         for (int i = 0; i < len; i++) {
-            int randomNum = intArr[i];
-            while (contains(intArr, randomNum)) {
+            int randomNum;
+            do {
                 randomNum = (60 + (int) (Math.random() * 40));
-            }
+            } while (contains(intArr, randomNum));
             intArr[i] = randomNum;
         }
         for (int i = 0; i < len; i++) {
@@ -93,29 +94,29 @@ public class ArrayTheme {
         String[] srcArr = {"    ", "AA", "", "BBB", "CC", "D", "    ", "E", "FF", "G", ""};
         len = srcArr.length;
         int lenCounter = 0;
-        for (int i = 0; i < len; i++) {
-            if (!srcArr[i].isBlank()) {
+        for (String str : srcArr ) {
+            if (!str.isBlank()) {
                 lenCounter++;
             }
         }
         String[] destArr = new String[lenCounter];
-        int srcPos = 0;
-        for (int destPos = 0; destPos < len; destPos++) {
-            if (!srcArr[destPos].isBlank()) {
-                System.arraycopy(srcArr, destPos, destArr, srcPos++, 1);
-            }
-        }
-        for (String str : srcArr) {
-            if (str.isBlank()) {
-                System.out.print(str);
+        int srcElem = 0;
+        int destElem = 0;
+        int strCounter = 0;
+        for (int i = 0; i < len; i++) {
+            if (srcArr[i].isBlank()) {
+                if (strCounter != 0) {
+                    srcElem = i - strCounter;
+                    System.arraycopy(srcArr, srcElem, destArr, destElem, strCounter);
+                    destElem += strCounter;
+                    strCounter = 0;
+                }
             } else {
-                System.out.print(str + " ");
+                strCounter++;
             }
         }
-        System.out.println();
-        for (String str : destArr) {
-            System.out.print(str + " ");
-        }
+        printStringArr(srcArr);
+        printStringArr(destArr);
     }
 
     private static void printArr(int[] arr) {
@@ -140,5 +141,13 @@ public class ArrayTheme {
             }
         }
         return false;
+    }
+
+    private static void printStringArr(String[] arr) {
+        int len = arr.length;
+        for (int i = 0; i < len - 1; i++) {
+            System.out.print("'" + arr[i] + "', ");
+        }
+        System.out.println("'" + arr[len - 1] + "'");
     }
 }
