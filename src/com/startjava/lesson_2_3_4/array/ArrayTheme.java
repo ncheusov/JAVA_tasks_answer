@@ -40,9 +40,9 @@ public class ArrayTheme {
         System.out.println("Массив до модификации");
         printFormattedArr(doubleArr);
         int zeroes = 0;
-        double middleIndex = doubleArr[len / 2];
+        double middleCellNumber = doubleArr[len / 2];
         for (int i = 0; i < len; i++) {
-            if (doubleArr[i] > middleIndex) {
+            if (doubleArr[i] > middleCellNumber) {
                 doubleArr[i] = 0;
                 zeroes++;
             }
