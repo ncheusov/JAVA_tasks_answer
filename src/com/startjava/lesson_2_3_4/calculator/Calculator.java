@@ -2,46 +2,31 @@ package startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    private int num1;
-    private int num2;
-    private char sign;
-
-    public void setNum1(int num1) {
-        this.num1 = num1;
-    }
-
-    public void setNum2(int num2) {
-        this.num2 = num2;
-    }
-
-    public void setSign(char sign) {
-        this.sign = sign;
-    }
-
-    public void calculate() {
-        int result = 1;
+    public double calculate(String[] mathExpression) {
+        int num1 = Integer.parseInt(mathExpression[0]);
+        String sign = mathExpression[1];
+        int num2 = Integer.parseInt(mathExpression[2]);
+        double result = 1d;
         switch (sign) {
-            case '+':
-                result = num1 + num2;
+            case "+":
+                result = Math.addExact(num1, num2);
                 break;
-            case '-':
-                result = num1 - num2;
+            case "-":
+                result = Math.subtractExact(num1, num2);
                 break;
-            case '*':
-                result = num1 * num2;
+            case "*":
+                result = Math.multiplyExact(num1, num2);
                 break;
-            case '/':
-                result = num1 / num2;
+            case "/":
+                result = Math.floorDiv(num1, num2);
                 break;
-            case '%':
-                result = num1 % num2;
+            case "%":
+                result = Math.floorMod(num1, num2);
                 break;
-            case '^':
-                for (int i = 1; i <= num2; i++) {
-                    result *= num1;
-                }
+            case "^":
+                result = Math.pow(num1, num2);
                 break;
         }
-        System.out.println("Результат: " + num1 + " " + sign + " " + num2 + " = " + result);
+        return result;
     }
 }

@@ -10,20 +10,20 @@ public class CalculatorTest {
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
-                System.out.print("Введите первое число: ");
-                myCalculator.setNum1(scan.nextInt());
-
-                System.out.print("Введите знак математической операции: ");
-                scan.nextLine();
-                myCalculator.setSign(scan.nextLine().charAt(0));
-
-                System.out.print("Введите второе число: ");
-                myCalculator.setNum2(scan.nextInt());
-                myCalculator.calculate();
+                System.out.print("Введите математическое выражение: ");
+                String[] mathExpression = scan.nextLine().split(" ");
+                printResult(myCalculator.calculate(mathExpression));
             }
-            System.out.println("Хотите продолжить вычисления? [yes/no] ");
-            scan.nextLine();
+            System.out.println("\nХотите продолжить вычисления? [yes/no] ");
             answer = scan.nextLine();
+        }
+    }
+
+    private static void printResult(double result) {
+        if (result % 1 != 0) {
+            System.out.printf("%.3f", result);
+        } else {
+            System.out.printf("%.0f", result);
         }
     }
 }
