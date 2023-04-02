@@ -5,14 +5,13 @@ import java.util.Scanner;
 public class CalculatorTest {
 
     public static void main(String[] args) {
-        Calculator myCalculator = new Calculator();
+        Calculator calculator = new Calculator();
         Scanner scan = new Scanner(System.in);
         String answer = "yes";
         while (!answer.equals("no")) {
             if (answer.equals("yes")) {
                 System.out.print("Введите математическое выражение: ");
-                String[] mathExpression = scan.nextLine().split(" ");
-                printResult(myCalculator.calculate(mathExpression));
+                printResult(calculator.calculate(scan.nextLine()));
             }
             System.out.println("\nХотите продолжить вычисления? [yes/no] ");
             answer = scan.nextLine();

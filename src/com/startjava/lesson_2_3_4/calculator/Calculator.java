@@ -2,30 +2,25 @@ package startjava.lesson_2_3_4.calculator;
 
 public class Calculator {
 
-    public double calculate(String[] mathExpression) {
-        int num1 = Integer.parseInt(mathExpression[0]);
-        String sign = mathExpression[1];
-        int num2 = Integer.parseInt(mathExpression[2]);
-        double result = 1d;
+    public double calculate(String mathExpression) {
+        String[] expression = mathExpression.split(" ");
+        int num1 = Integer.parseInt(expression[0]);
+        String sign = expression[1];
+        int num2 = Integer.parseInt(expression[2]);
+        double result = 0;
         switch (sign) {
             case "+":
-                result = Math.addExact(num1, num2);
-                break;
+                return Math.addExact(num1, num2);
             case "-":
-                result = Math.subtractExact(num1, num2);
-                break;
+                return Math.subtractExact(num1, num2);
             case "*":
-                result = Math.multiplyExact(num1, num2);
-                break;
+                return Math.multiplyExact(num1, num2);
             case "/":
-                result = Math.floorDiv(num1, num2);
-                break;
+                return Math.floorDiv(num1, num2);
             case "%":
-                result = Math.floorMod(num1, num2);
-                break;
+                return Math.floorMod(num1, num2);
             case "^":
-                result = Math.pow(num1, num2);
-                break;
+                return Math.pow(num1, num2);
         }
         return result;
     }
