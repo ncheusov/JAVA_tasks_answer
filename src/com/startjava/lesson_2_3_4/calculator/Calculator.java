@@ -17,7 +17,10 @@ public class Calculator {
             case "/" -> Math.floorDiv(num1, num2);
             case "%" -> Math.floorMod(num1, num2);
             case "^" -> Math.pow(num1, num2);
-            default -> throw new RuntimeException("Некоректный математический оператор");
+            default  -> {
+                System.out.println("Некорректный математический оператор");
+                yield 0;
+            }
         };
     }
 }

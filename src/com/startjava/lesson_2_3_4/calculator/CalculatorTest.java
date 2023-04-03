@@ -17,7 +17,6 @@ public class CalculatorTest {
                     System.out.print("Введите корректные значения: ");
                     mathExpression = scan.nextLine();
                 }
-
                 printResult(Calculator.calculate(mathExpression));
             }
             System.out.println("\nХотите продолжить вычисления? [yes/no] ");
