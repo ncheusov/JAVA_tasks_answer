@@ -12,12 +12,10 @@ public class CalculatorTest {
                 System.out.print("Введите математическое выражение: ");
                 String mathExpression = scan.nextLine();
                 try {
-                    Calculator.calculate(mathExpression);
+                    printResult(Calculator.calculate(mathExpression));
                 } catch (RuntimeException ex) {
-                    System.out.print("Введите корректные значения: ");
-                    mathExpression = scan.nextLine();
+                    continue;
                 }
-                printResult(Calculator.calculate(mathExpression));
             }
             System.out.println("\nХотите продолжить вычисления? [yes/no] ");
             answer = scan.nextLine();

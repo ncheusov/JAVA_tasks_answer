@@ -6,10 +6,7 @@ public class Calculator {
         String[] elements = mathExpression.split(" ");
         int num1 = Integer.parseInt(elements[0]);
         int num2 = Integer.parseInt(elements[2]);
-
-        if (((num1 < 0) || (num2 < 0)) || ((num1 % 1 != 0) || (num2 % 1 != 0))) {
-            throw new RuntimeException("Вводимые числа должны быть целыми и положительными");
-        }
+        validate(num1, num2);
         return switch (elements[1]) {
             case "+" -> Math.addExact(num1, num2);
             case "-" -> Math.subtractExact(num1, num2);
@@ -22,5 +19,11 @@ public class Calculator {
                 yield 0;
             }
         };
+    }
+
+    public static void validate(int num1, int num2) {
+        if (((num1 < 0) || (num2 < 0)) || ((num1 % 1 != 0) || (num2 % 1 != 0))) {
+            throw new RuntimeException("Вводимые числа должны быть целыми и положительными");
+        }
     }
 }
