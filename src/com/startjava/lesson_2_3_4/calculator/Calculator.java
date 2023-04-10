@@ -22,7 +22,7 @@ public class Calculator {
     }
 
     private static void validate(int num1, int num2) {
-        if (((num1 < 0) || (num2 < 0)) || ((num1 % 1 != 0) || (num2 % 1 != 0))) {
+        if (((num1 <= 0) || (num2 <= 0)) || ((num1 % 1 != 0) || (num2 % 1 != 0))) {
             throw new RuntimeException("Вводимые числа должны быть целыми и положительными");
         }
     }
