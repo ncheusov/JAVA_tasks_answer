@@ -1,27 +1,31 @@
 package startjava.lesson_2_3_4.guess;
 
+import java.util.Arrays;
+
 public class Player {
 
-    private String name;
-    private int number;
+    private final String NAME;
+    private int[] numbers;
 
     public Player(String name) {
-        this.name = name;
+        this.NAME = name;
     }
 
     public String getName() {
-        return name;
+        return NAME;
     }
 
-    public void setNumber(int number) {
-        if (number <= 0 || number > 100) {
-            System.out.println("Число должно быть в полуинтервале (0, 100]");
-        } else {
-            this.number = number;
+    public void setNumber(int[] numbers) {
+        this.numbers = numbers;
+    }
+
+    public int[] getNumbers() {
+        int size = 0;
+        for (int digit : numbers) {
+            if (digit != 0) {
+                size++;
+            }
         }
-    }
-
-    public int getNumber() {
-        return number;
+        return java.util.Arrays.copyOf(numbers, size);
     }
 }
