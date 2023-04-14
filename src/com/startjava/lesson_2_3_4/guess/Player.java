@@ -4,28 +4,28 @@ import java.util.Arrays;
 
 public class Player {
 
-    private final String NAME;
-    private int[] numbers;
+    private String name;
+    private static final int[] NUMBERS = new int[10];
 
     public Player(String name) {
-        this.NAME = name;
+        this.name = name;
     }
 
     public String getName() {
-        return NAME;
+        return name;
     }
 
-    public void setNumber(int[] numbers) {
-        this.numbers = numbers;
+    public void addNumber(int number, int elem) {
+        NUMBERS[elem] = number;
     }
 
     public int[] getNumbers() {
         int size = 0;
-        for (int digit : numbers) {
+        for (int digit : NUMBERS) {
             if (digit != 0) {
                 size++;
             }
         }
-        return java.util.Arrays.copyOf(numbers, size);
+        return Arrays.copyOf(NUMBERS, size);
     }
 }
