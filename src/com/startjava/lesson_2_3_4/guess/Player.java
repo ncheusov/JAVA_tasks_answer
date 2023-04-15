@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 
-    private String name;
-    private static final int[] NUMBERS = new int[10];
+    private final String name;
+    private final int[] numbers = new int[10];
 
     public Player(String name) {
         this.name = name;
@@ -16,16 +16,16 @@ public class Player {
     }
 
     public void addNumber(int number, int elem) {
-        NUMBERS[elem] = number;
+        numbers[elem] = number;
     }
 
     public int[] getNumbers() {
         int size = 0;
-        for (int digit : NUMBERS) {
+        for (int digit : numbers) {
             if (digit != 0) {
                 size++;
             }
         }
-        return Arrays.copyOf(NUMBERS, size);
+        return Arrays.copyOf(numbers, size);
     }
 }
