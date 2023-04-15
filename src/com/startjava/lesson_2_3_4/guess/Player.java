@@ -6,6 +6,7 @@ public class Player {
 
     private final String name;
     private final int[] numbers = new int[10];
+//    private int size = 0;
 
     public Player(String name) {
         this.name = name;
@@ -20,16 +21,20 @@ public class Player {
     }
 
     public int[] getNumbers() {
+        return Arrays.copyOf(numbers, size());
+    }
+
+    public void clear() {
+        Arrays.fill(numbers, size());
+    }
+
+    private int size() {
         int size = 0;
         for (int digit : numbers) {
             if (digit != 0) {
                 size++;
             }
         }
-        return Arrays.copyOf(numbers, size);
-    }
-
-    public void clear() {
-        Arrays.fill(numbers, 0);
+        return size;
     }
 }

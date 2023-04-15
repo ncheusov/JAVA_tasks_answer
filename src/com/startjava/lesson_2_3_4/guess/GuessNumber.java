@@ -44,6 +44,12 @@ public class GuessNumber {
         player2.clear();
     }
 
+    private int inputNumber(String name) {
+        System.out.print(name + ", угадай число: ");
+        Scanner scan = new Scanner(System.in);
+        return scan.nextInt();
+    }
+
     private boolean isEqual(int num, int hiddenNum, int attempt, String name) {
         if (num == hiddenNum && attempt != 10) {
             System.out.println("Игрок " + name + " угадал число "
@@ -68,12 +74,6 @@ public class GuessNumber {
         } else if (player2Attempt == 10) {
             System.out.println("У " + name2 + " закончились попытки");
         }
-    }
-
-    private int inputNumber(String name) {
-        System.out.print(name + ", угадай число: ");
-        Scanner scan = new Scanner(System.in);
-        return scan.nextInt();
     }
 
     private void printPlayerAttempts(int[] attempts, int[] attempts2) {
