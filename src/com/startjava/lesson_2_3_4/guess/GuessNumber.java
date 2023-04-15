@@ -40,6 +40,8 @@ public class GuessNumber {
             i++;
         }
         printPlayerAttempts(player1.getNumbers(), player2.getNumbers());
+        player1.clear();
+        player2.clear();
     }
 
     private boolean isEqual(int num, int hiddenNum, int attempt, String name) {

@@ -28,4 +28,8 @@ public class Player {
         }
         return Arrays.copyOf(numbers, size);
     }
+
+    public void clear() {
+        Arrays.fill(numbers, 0);
+    }
 }
