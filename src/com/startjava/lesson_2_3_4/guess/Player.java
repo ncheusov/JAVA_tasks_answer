@@ -5,36 +5,38 @@ import java.util.Arrays;
 public class Player {
 
     private final String name;
-    private final int[] numbers = new int[10];
-//    private int size = 0;
+    private int attempt;
+    private int[] numbers;
 
     public Player(String name) {
         this.name = name;
     }
-
     public String getName() {
         return name;
     }
 
-    public void addNumber(int number, int elem) {
-        numbers[elem] = number;
+    public int getAttempt() {
+        return attempt;
+    }
+
+    public void addNumber(int number) {
+        numbers = new int[10];
+        if (attempt != 10) {
+            numbers[attempt] = number;
+            attempt++;
+        }
     }
 
     public int[] getNumbers() {
-        return Arrays.copyOf(numbers, size());
+        return Arrays.copyOf(numbers, attempt);
     }
 
-    public void clear() {
-        Arrays.fill(numbers, size());
+    public int getLastNumber() {
+        return numbers[attempt - 1];
     }
 
-    private int size() {
-        int size = 0;
-        for (int digit : numbers) {
-            if (digit != 0) {
-                size++;
-            }
-        }
-        return size;
+    public void clearAttempts() {
+        Arrays.fill(numbers, 0, attempt, 0);
+        attempt = 0;
     }
 }

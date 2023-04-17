@@ -15,74 +15,57 @@ public class GuessNumber {
 
     public void start() {
         Random random = new Random();
-        int hiddenNum = random.nextInt(100) + 1;
-        int player1Attempt = 1;
-        int player2Attempt = 1;
-        int i = 0;
-        String name1 = player1.getName();
-        String name2 = player2.getName();
-        while (true) {
-            player1.addNumber(inputNumber(name1), i);
-            if (isEqual(player1.getNumbers()[i], hiddenNum, player1Attempt, name1)) {
+        int hiddenNumber = random.nextInt(100) + 1;
+        do {
+            if (equal(hiddenNumber)) {
                 break;
             }
-            if (isNotEqual(player1.getNumbers()[i], hiddenNum, player1Attempt)) {
-                player1Attempt++;
-            }
-            player2.addNumber(inputNumber(name2), i);
-            if (isEqual(player2.getNumbers()[i], hiddenNum, player2Attempt, name2)) {
-                break;
-            }
-            if (isNotEqual(player2.getNumbers()[i], hiddenNum, player2Attempt)) {
-                player2Attempt++;
-            }
-            endedOfAttempts(player1Attempt, player2Attempt, name1, name2);
-            i++;
+        } while (true);
+        for (Player player : new Player[] {player1, player2}) {
+            printPlayerAttempt(player);
+            player.clearAttempts();
         }
-        printPlayerAttempts(player1.getNumbers(), player2.getNumbers());
-        player1.clear();
-        player2.clear();
     }
 
-    private int inputNumber(String name) {
-        System.out.print(name + ", угадай число: ");
-        Scanner scan = new Scanner(System.in);
-        return scan.nextInt();
-    }
-
-    private boolean isEqual(int num, int hiddenNum, int attempt, String name) {
-        if (num == hiddenNum && attempt != 10) {
-            System.out.println("Игрок " + name + " угадал число "
-                    + hiddenNum + " с " + attempt + " попытки");
-            return true;
+    private boolean equal(int hiddenNumber) {
+        for (Player player : new Player[] {player1, player2}) {
+            inputNumber(player);
+            if (!isEqual(player, hiddenNumber)) {
+                return true;
+            }
         }
         return false;
     }
 
-    private boolean isNotEqual(int num, int hiddenNum, int attempt) {
-        if (num < hiddenNum && attempt != 10) {
-            System.out.println("Число " + num + " меньше того, что загадал компьютер");
+    private void inputNumber(Player player) {
+        System.out.print(player.getName() + ", угадай число: ");
+        Scanner scan = new Scanner(System.in);
+        player.addNumber(scan.nextInt());
+    }
+
+    private boolean isEqual(Player player, int hiddenNumber) {
+        if (player.getLastNumber() == hiddenNumber) {
+            System.out.println("Игрок " + player.getName() + " угадал число "
+                    + hiddenNumber + " с " + player.getAttempt() + " попытки");
+            return false;
+        }
+        if (player.getLastNumber() < hiddenNumber) {
+            System.out.println("Число " + player.getLastNumber() + " меньше, чем загадал компьютер");
         } else {
-            System.out.println("Число " + num + " больше того, что загадал компьютер");
+            System.out.println("Число " + player.getLastNumber() + " больше, чем загадал компьютер");
+        }
+        if (player.getAttempt() == 10) {
+            System.out.println("У " + player.getName() + " закончились попытки");
         }
         return true;
     }
 
-    private void endedOfAttempts(int player1Attempt, int player2Attempt, String name1, String name2) {
-        if (player1Attempt == 10) {
-            System.out.println("У " + name1 + " закончились попытки");
-        } else if (player2Attempt == 10) {
-            System.out.println("У " + name2 + " закончились попытки");
-        }
-    }
-
-    private void printPlayerAttempts(int[] attempts, int[] attempts2) {
-        for (int digit : attempts) {
-            System.out.print(digit + " ");
+    private void printPlayerAttempt(Player player) {
+        int length = player.getNumbers().length;
+        int[] intArray = player.getNumbers();
+        for (int i = 0; i < length; i++) {
+            System.out.print(intArray[i] + " ");
         }
         System.out.println();
-        for (int digit : attempts2) {
-            System.out.print(digit + " ");
-        }
     }
 }
