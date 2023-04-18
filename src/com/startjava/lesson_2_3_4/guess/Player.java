@@ -6,11 +6,12 @@ public class Player {
 
     private final String name;
     private int attempt;
-    private int[] numbers;
+    private final int[] numbers = new int[10];
 
     public Player(String name) {
         this.name = name;
     }
+
     public String getName() {
         return name;
     }
@@ -20,10 +21,11 @@ public class Player {
     }
 
     public void addNumber(int number) {
-        numbers = new int[10];
         if (attempt != 10) {
             numbers[attempt] = number;
             attempt++;
+        } else {
+            System.out.println("У " + name + " закончились попытки");
         }
     }
 
