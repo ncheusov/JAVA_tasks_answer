@@ -5,12 +5,10 @@ import java.util.Random;
 
 public class GuessNumber {
 
-    private final Player player1;
-    private final Player player2;
+    private final Player[] players;
 
-    public GuessNumber(Player player1, Player player2) {
-        this.player1 = player1;
-        this.player2 = player2;
+    public GuessNumber(Player... players) {
+        this.players = players;
     }
 
     public void start() {
@@ -21,16 +19,14 @@ public class GuessNumber {
                 break;
             }
         } while (true);
-        for (int i = 0; i < 2; i++) {
-            Player player = (i == 0) ? player1 : player2;
+        for (Player player : players) {
             printPlayerAttempts(player);
             player.clearAttempts();
         }
     }
 
     private boolean isGuessed(int hiddenNumber) {
-        for (int i = 0; i < 2; i++) {
-            Player player = (i == 0) ? player1 : player2;
+        for (Player player : players) {
             inputNumber(player);
             if (!compareNumbers(player, hiddenNumber)) {
                 return true;
@@ -40,9 +36,13 @@ public class GuessNumber {
     }
 
     private void inputNumber(Player player) {
-        System.out.print(player.getName() + ", угадай число: ");
-        Scanner scan = new Scanner(System.in);
-        player.addNumber(scan.nextInt());
+        try {
+            System.out.print(player.getName() + ", угадай число: ");
+            Scanner scan = new Scanner(System.in);
+            player.addNumber(scan.nextInt());
+        } catch (RuntimeException ex) {
+            inputNumber(player);
+        }
     }
 
     private boolean compareNumbers(Player player, int hiddenNumber) {
@@ -51,11 +51,8 @@ public class GuessNumber {
                     + hiddenNumber + " с " + player.getAttempt() + " попытки");
             return false;
         }
-        if (player.getLastNumber() < hiddenNumber) {
-            System.out.println("Число " + player.getLastNumber() + " меньше, чем загадал компьютер");
-        } else {
-            System.out.println("Число " + player.getLastNumber() + " больше, чем загадал компьютер");
-        }
+        String lessOrGreater = (player.getLastNumber() < hiddenNumber) ? " меньше" : " больше";
+        System.out.println("Число " + player.getLastNumber() + lessOrGreater + ", чем загадал компьютер");
         return true;
     }
 

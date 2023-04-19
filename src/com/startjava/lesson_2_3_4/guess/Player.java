@@ -21,11 +21,16 @@ public class Player {
     }
 
     public void addNumber(int number) {
-        if (attempt < 10) {
-            numbers[attempt] = number;
-            attempt++;
+        if (number > 0 && number <= 100) {
+            if (attempt < 10) {
+                numbers[attempt] = number;
+                attempt++;
+            } else {
+                System.out.println("У " + name + " закончились попытки");
+            }
         } else {
-            System.out.println("У " + name + " закончились попытки");
+            System.out.println("Вводимое число должно быть в полуинтервале (0, 100]");
+            throw new RuntimeException();
         }
     }
 
