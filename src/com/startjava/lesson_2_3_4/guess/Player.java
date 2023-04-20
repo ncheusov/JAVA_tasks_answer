@@ -29,7 +29,6 @@ public class Player {
                 System.out.println("У " + name + " закончились попытки");
             }
         } else {
-            System.out.println("Вводимое число должно быть в полуинтервале (0, 100]");
             throw new RuntimeException();
         }
     }

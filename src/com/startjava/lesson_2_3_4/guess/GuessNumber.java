@@ -41,6 +41,7 @@ public class GuessNumber {
             Scanner scan = new Scanner(System.in);
             player.addNumber(scan.nextInt());
         } catch (RuntimeException ex) {
+            System.out.println("Вводимое число должно быть в полуинтервале (0, 100]");
             inputNumber(player);
         }
     }
