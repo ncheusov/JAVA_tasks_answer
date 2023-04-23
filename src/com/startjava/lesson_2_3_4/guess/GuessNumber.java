@@ -5,9 +5,10 @@ import java.util.Random;
 
 public class GuessNumber {
 
-    private static final Scanner SCANNER = new Scanner(System.in);
-    private static final Random RANDOM = new Random();
     private static final int UPPER_BOUNDARY = 100;
+    private static final int LOWER_BOUNDARY = 1;
+    private final Scanner scanner = new Scanner(System.in);
+    private final Random random = new Random();
     private final Player[] players;
     private int hiddenNumber;
 
@@ -16,15 +17,35 @@ public class GuessNumber {
     }
 
     public void start() {
-        hiddenNumber = RANDOM.nextInt(UPPER_BOUNDARY) + 1;
-        do {
-            if (isGuessed()) {
-                break;
-            }
-        } while (true);
+        castLots();
+        int round = 1;
+        while (round <= 3) {
+            hiddenNumber = random.nextInt(UPPER_BOUNDARY) + LOWER_BOUNDARY;
+            do {
+                if (isGuessed()) {
+                    break;
+                }
+            } while (true);
+            System.out.println("Раунд " + round + " завершен.");
+            round++;
+        }
         for (Player player : players) {
             printPlayerAttempts(player);
             player.clearAttempts();
+        }
+    }
+
+    private void castLots() {
+        int length = players.length;
+        for (int i = length - 1; i > 0; i--) {
+            int randomIndex = random.nextInt(i);
+            Player tmp = players[randomIndex];
+            players[randomIndex] = players[i];
+            players[i] = tmp;
+        }
+        System.out.println("\nПорядок угадывания:");
+        for (int i = 0; i < length; i++) {
+            System.out.println((i + 1) + "-й: " + players[i].getName());
         }
     }
 
@@ -40,8 +61,8 @@ public class GuessNumber {
 
     private void inputNumber(Player player) {
         System.out.print(player.getName() + ", угадай число: ");
-        if (!player.addNumber(SCANNER.nextInt())) {
-            System.out.println("Угадываемое число должно быть в полуинтервале (0, 100], повторите попытку.");
+        if (!player.addNumber(scanner.nextInt())) {
+            System.out.println("Угадываемое число должно быть в полуинтервале (0, 100], повтори попытку.");
             inputNumber(player);
         }
     }
@@ -54,7 +75,7 @@ public class GuessNumber {
             return false;
         }
         String lessOrMore = (lastEnteredNumber < hiddenNumber) ? " меньше" : " больше";
-        System.out.println("Число " + player.getLastNumber() + lessOrMore + ", чем загадал компьютер");
+        System.out.println("Число " + lastEnteredNumber + lessOrMore + ", чем загадал компьютер");
         return true;
     }
 
