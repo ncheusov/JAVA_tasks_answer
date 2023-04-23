@@ -20,17 +20,16 @@ public class Player {
         return attempt;
     }
 
-    public void addNumber(int number) {
+    public boolean addNumber(int number) {
         if (number > 0 && number <= 100) {
             if (attempt < 10) {
                 numbers[attempt] = number;
                 attempt++;
-            } else {
-                System.out.println("У " + name + " закончились попытки");
+                return true;
             }
-        } else {
-            throw new RuntimeException();
+            System.out.println("У " + name + " закончились попытки");
         }
+        return false;
     }
 
     public int[] getNumbers() {
