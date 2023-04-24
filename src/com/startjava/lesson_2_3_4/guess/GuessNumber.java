@@ -7,6 +7,7 @@ public class GuessNumber {
 
     private static final int UPPER_BOUNDARY = 100;
     private static final int LOWER_BOUNDARY = 1;
+    private static final int ROUND = 3;
     private final Scanner scanner = new Scanner(System.in);
     private final Random random = new Random();
     private final Player[] players;
@@ -18,21 +19,22 @@ public class GuessNumber {
 
     public void start() {
         castLots();
-        int round = 1;
-        while (round <= 3) {
+        int roundCounter = 1;
+        while (roundCounter <= ROUND) {
             hiddenNumber = random.nextInt(UPPER_BOUNDARY) + LOWER_BOUNDARY;
             do {
                 if (isGuessed()) {
                     break;
                 }
             } while (true);
-            System.out.println("Раунд " + round + " завершен.");
-            round++;
+            System.out.println("Раунд " + roundCounter + " завершен.");
+            roundCounter++;
+            for (Player player : players) {
+                printPlayerAttempts(player);
+                player.clearAttempts();
+            }
         }
-        for (Player player : players) {
-            printPlayerAttempts(player);
-            player.clearAttempts();
-        }
+        pickWinner();
     }
 
     private void castLots() {
@@ -72,6 +74,7 @@ public class GuessNumber {
         if (lastEnteredNumber == hiddenNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число "
                     + hiddenNumber + " с " + player.getAttempt() + " попытки");
+            player.addScore();
             return false;
         }
         String lessOrMore = (lastEnteredNumber < hiddenNumber) ? " меньше" : " больше";
@@ -85,5 +88,15 @@ public class GuessNumber {
             System.out.print(number + " ");
         }
         System.out.println();
+    }
+
+    private void pickWinner() {
+        Player winner = players[0];
+        for (int i = 0; i < players.length - 1; i++) {
+            if (players[i].getScore() > players[i + 1].getScore()) {
+                winner = players[i];
+            }
+        }
+        System.out.println("Победил " + winner.getName());
     }
 }
