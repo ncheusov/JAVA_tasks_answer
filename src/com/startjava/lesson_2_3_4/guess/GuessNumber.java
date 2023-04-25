@@ -91,12 +91,25 @@ public class GuessNumber {
     }
 
     private void pickWinner() {
-        Player winner = players[0];
-        for (int i = 0; i < players.length - 1; i++) {
-            if (players[i].getScore() > players[i + 1].getScore()) {
-                winner = players[i];
+        int maxScore = players[0].getScore();
+        int winnerIndex = 0;
+        for (int i = 1; i < players.length; i++) {
+            if (players[i].getScore() > maxScore) {
+                maxScore = players[i].getScore();
+                winnerIndex = i;
             }
         }
-        System.out.println("Победил " + winner.getName());
+        boolean isDraw = false;
+        for (int i = 0; i < players.length; i++) {
+            if (i != winnerIndex && players[i].getScore() == maxScore) {
+                isDraw = true;
+                break;
+            }
+        }
+        if (isDraw) {
+            System.out.println("Ничья!");
+        } else {
+            System.out.println("Победил " + players[winnerIndex].getName());
+        }
     }
 }

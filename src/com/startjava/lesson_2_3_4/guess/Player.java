@@ -7,29 +7,13 @@ public class Player {
     private static final int UPPER_BOUNDARY = 100;
     private static final int MAX_ATTEMPT = 10;
     private static final int LOWER_BOUNDARY = 0;
-    private final int[] numbers = new int[10];
+    private final int[] numbers = new int[MAX_ATTEMPT];
     private final String name;
     private int attempt;
     private int score;
 
     public Player(String name) {
         this.name = name;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public int getAttempt() {
-        return attempt;
-    }
-
-    public void addScore() {
-        score++;
-    }
-
-    public int getScore() {
-        return score;
     }
 
     public boolean addNumber(int number) {
@@ -52,8 +36,24 @@ public class Player {
         return numbers[attempt - 1];
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public int getAttempt() {
+        return attempt;
+    }
+
     public void clearAttempts() {
         Arrays.fill(numbers, 0, attempt, 0);
         attempt = 0;
+    }
+
+    public void addScore() {
+        score++;
+    }
+
+    public int getScore() {
+        return score;
     }
 }
