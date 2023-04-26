@@ -5,11 +5,7 @@ import java.util.Random;
 
 public class GuessNumber {
 
-    private static final int UPPER_BOUNDARY = 100;
-    private static final int LOWER_BOUNDARY = 1;
-    private static final int ROUND = 3;
-    private final Scanner scanner = new Scanner(System.in);
-    private final Random random = new Random();
+    private static final int ROUNDS = 3;
     private final Player[] players;
     private int hiddenNumber;
 
@@ -18,26 +14,27 @@ public class GuessNumber {
     }
 
     public void start() {
-        castLots();
-        int roundCounter = 1;
-        while (roundCounter <= ROUND) {
-            hiddenNumber = random.nextInt(UPPER_BOUNDARY) + LOWER_BOUNDARY;
+        Random random = new Random();
+        castLots(random);
+        int currentRound = 1;
+        while (currentRound <= ROUNDS) {
+            hiddenNumber = random.nextInt(Player.getStartRange()) + Player.getEndRange();
             do {
                 if (isGuessed()) {
                     break;
                 }
-            } while (true);
-            System.out.println("Раунд " + roundCounter + " завершен.");
-            roundCounter++;
+            } while (!isGuessed());
+            System.out.println("Раунд " + currentRound + " завершен.");
+            currentRound++;
             for (Player player : players) {
                 printPlayerAttempts(player);
                 player.clearAttempts();
             }
         }
-        pickWinner();
+        defineWinner();
     }
 
-    private void castLots() {
+    private void castLots(Random random) {
         int length = players.length;
         for (int i = length - 1; i > 0; i--) {
             int randomIndex = random.nextInt(i);
@@ -62,6 +59,7 @@ public class GuessNumber {
     }
 
     private void inputNumber(Player player) {
+        Scanner scanner = new Scanner(System.in);
         System.out.print(player.getName() + ", угадай число: ");
         if (!player.addNumber(scanner.nextInt())) {
             System.out.println("Угадываемое число должно быть в полуинтервале (0, 100], повтори попытку.");
@@ -74,7 +72,7 @@ public class GuessNumber {
         if (lastEnteredNumber == hiddenNumber) {
             System.out.println("Игрок " + player.getName() + " угадал число "
                     + hiddenNumber + " с " + player.getAttempt() + " попытки");
-            player.addScore();
+            player.upScore();
             return false;
         }
         String lessOrMore = (lastEnteredNumber < hiddenNumber) ? " меньше" : " больше";
@@ -90,7 +88,7 @@ public class GuessNumber {
         System.out.println();
     }
 
-    private void pickWinner() {
+    private void defineWinner() {
         int maxScore = players[0].getScore();
         int winnerIndex = 0;
         for (int i = 1; i < players.length; i++) {

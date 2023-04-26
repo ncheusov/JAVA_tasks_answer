@@ -4,9 +4,9 @@ import java.util.Arrays;
 
 public class Player {
 
-    private static final int UPPER_BOUNDARY = 100;
+    private static final int START_RANGE = 100;
     private static final int MAX_ATTEMPT = 10;
-    private static final int LOWER_BOUNDARY = 0;
+    private static final int END_RANGE = 1;
     private final int[] numbers = new int[MAX_ATTEMPT];
     private final String name;
     private int attempt;
@@ -16,8 +16,16 @@ public class Player {
         this.name = name;
     }
 
+    public static int getStartRange() {
+        return START_RANGE;
+    }
+
+    public static int getEndRange() {
+        return END_RANGE;
+    }
+
     public boolean addNumber(int number) {
-        if (number > LOWER_BOUNDARY && number <= UPPER_BOUNDARY) {
+        if (number > END_RANGE && number <= START_RANGE) {
             if (attempt < MAX_ATTEMPT) {
                 numbers[attempt] = number;
                 attempt++;
@@ -49,7 +57,7 @@ public class Player {
         attempt = 0;
     }
 
-    public void addScore() {
+    public void upScore() {
         score++;
     }
 
