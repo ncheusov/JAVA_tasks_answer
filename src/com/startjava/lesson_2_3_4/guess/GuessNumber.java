@@ -19,11 +19,9 @@ public class GuessNumber {
         int currentRound = 1;
         while (currentRound <= ROUNDS) {
             hiddenNumber = random.nextInt(Player.getStartRange()) + Player.getEndRange();
-            do {
-                if (isGuessed()) {
-                    break;
-                }
-            } while (!isGuessed());
+           while (!isGuessed()) {
+               continue;
+           }
             System.out.println("Раунд " + currentRound + " завершен.");
             currentRound++;
             for (Player player : players) {
