@@ -1,6 +1,8 @@
+DROP TABLE IF EXISTS jaegers;
+
 CREATE DATABASE Jaegers;
 
-CREATE TABLE Jaegers (
+CREATE TABLE jaegers (
     id SERIAL PRIMARY KEY,
     modelName TEXT,
     mark INTEGER,
@@ -8,6 +10,9 @@ CREATE TABLE Jaegers (
     weight DECIMAL(4, 3),
     status TEXT,
     origin TEXT,
-    launch TEXT,
+    launch DATE NOT NULL,
     kaijuKill INTEGER
 );
+
+\i init_db.sql
+\i queries.sql
