@@ -32,8 +32,8 @@ WHERE launch =
 \echo '-- robots that destroyed the most kaiju'
 SELECT modelName, kaijuKill
 FROM jaegers
-ORDER BY kaijuKill
-DESC LIMIT 3;
+ORDER BY kaijuKill DESC 
+LIMIT 3;
 
 \echo '-- average weigth of robots'
 SELECT AVG(weight)
