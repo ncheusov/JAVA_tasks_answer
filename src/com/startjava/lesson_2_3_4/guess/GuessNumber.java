@@ -19,14 +19,13 @@ public class GuessNumber {
         int currentRound = 1;
         while (currentRound <= ROUNDS) {
             hiddenNumber = random.nextInt(Player.getStartRange()) + Player.getEndRange();
-           while (!isGuessed()) {
-               continue;
-           }
-            System.out.println("Раунд " + currentRound + " завершен.");
-            currentRound++;
-            for (Player player : players) {
-                printPlayerAttempts(player);
-                player.clearAttempts();
+            if (isGuessed()) {
+                System.out.println("Раунд " + currentRound + " завершен.");
+                currentRound++;
+                for (Player player : players) {
+                    printPlayerAttempts(player);
+                    player.clearAttempts();
+                }
             }
         }
         defineWinner();
@@ -47,13 +46,14 @@ public class GuessNumber {
     }
 
     private boolean isGuessed() {
-        for (Player player : players) {
-            inputNumber(player);
-            if (!compareNumbers(player)) {
-                return true;
+        while (true) {
+            for (Player player : players) {
+                inputNumber(player);
+                if (!compareNumbers(player)) {
+                    return true;
+                }
             }
         }
-        return false;
     }
 
     private void inputNumber(Player player) {
