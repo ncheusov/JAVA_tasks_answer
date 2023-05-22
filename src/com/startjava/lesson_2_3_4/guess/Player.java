@@ -4,8 +4,8 @@ import java.util.Arrays;
 
 public class Player {
 
-    private static final int START_RANGE = 100;
-    private static final int MAX_ATTEMPT = 10;
+    static final int START_RANGE = 100;
+    static final int MAX_ATTEMPT = 10;
     private static final int END_RANGE = 1;
     private final int[] numbers = new int[MAX_ATTEMPT];
     private final String name;
@@ -14,14 +14,6 @@ public class Player {
 
     public Player(String name) {
         this.name = name;
-    }
-
-    public static int getStartRange() {
-        return START_RANGE;
-    }
-
-    public static int getEndRange() {
-        return END_RANGE;
     }
 
     public boolean addNumber(int number) {
